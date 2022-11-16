@@ -9,20 +9,17 @@ use Illuminate\Support\Facades\DB;
 
 
 use App\Schedule;
+use App\EnroleeCourse;
 
 class IncompleteRatingStudentController extends Controller
 {
     //
     public function notRated(Request $req){
         
-        // $data = Schedule::with(['students' => function($q){
-        //     $q->join('registrar_gadtc.tblstudhinfo', 'registrar_gadtc.tblstudhinfo.StudID', 'evaluation.ratings.student_id');
-        // }])
-        //     ->take(3)
-        //     ->get();
-        $data = Schedule::with(['students'])
+        $data = Schedule::with(['student_list'])
             ->take(3)
             ->get();
+
 
         
         return $data;

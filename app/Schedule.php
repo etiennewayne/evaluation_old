@@ -63,6 +63,12 @@ class Schedule extends Model
         return $this->setConnection('mysql')->hasMany('App\Rating', 'schedule_code', 'SchedCode')
             ->with('student_name');
     }
+
+    public function student_list()
+    {
+        return $this->hasMany('App\EnroleeCourse', 'EnrSchedCode', 'SchedCode')
+            ->with('student_name');
+    }
   
 
 }

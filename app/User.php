@@ -36,7 +36,9 @@ class User extends Authenticatable
 
 	//protected $table = 'vw_users';
 
-
+    public function student_program(){
+        $this->hasOne('App\EnroleeStudent', 'EnrIDNum', 'StudID');
+    }
 
     /**
      * The attributes that should be cast to native types.

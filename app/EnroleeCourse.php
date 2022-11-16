@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EnroleeCourses extends Model
+class EnroleeCourse extends Model
 {
     //
 
@@ -34,8 +34,10 @@ class EnroleeCourses extends Model
 //    }
 
 
-
-
-
+    public function student_name(){
+        return $this->setConnection('registrar_gadtc')->hasOne('App\User', 'StudID', 'EnrIDNum')
+            ->select('StudID', 'StudLName', 'StudFName', 'StudMName')
+            ->with('student_program');
+    }
 
 }
